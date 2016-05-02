@@ -30,7 +30,9 @@ app.get('/:width', function (req, res) {
 });
 
 app.get('/mimg/:count', function (req, res) {
-	res.render('mulimg', { 'count': req.params.count });
+	var count=Array.apply(null, {length:req.params.count}).map(Number.call, Number);
+	console.log(count);
+	res.render('mulimg', { 'count': count });
 });
 
 
